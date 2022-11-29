@@ -77,8 +77,8 @@ func handler(w http.ResponseWriter, r *http.Request) {
 }
 
 func main() {
-	http.HandleFunc("/", handler)
-	err := http.ListenAndServe("server-cert:8888", nil)
+	http.HandleFunc("/buy_candy", handler)
+	err := http.ListenAndServe("server-cert:3333", nil)
 	if err != nil {
 		log.Fatal(err)
 	}

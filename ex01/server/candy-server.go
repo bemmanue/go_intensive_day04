@@ -80,7 +80,7 @@ func handler(w http.ResponseWriter, r *http.Request) {
 }
 
 func main() {
-	http.HandleFunc("/", handler)
+	http.HandleFunc("/buy_candy", handler)
 
 	clientCA, err := ioutil.ReadFile("./client-cert/cert.pem")
 	if err != nil {
@@ -90,7 +90,7 @@ func main() {
 	clientCAPool.AppendCertsFromPEM(clientCA)
 
 	server := http.Server{
-		Addr: ":8888",
+		Addr: ":3333",
 		TLSConfig: &tls.Config{
 			ClientCAs:  clientCAPool,
 			ClientAuth: tls.RequireAndVerifyClientCert,

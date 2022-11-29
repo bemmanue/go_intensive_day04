@@ -74,7 +74,7 @@ func main() {
 			},
 		}}
 
-	req, err := http.NewRequest(http.MethodPost, "https://localhost:8888", bytes.NewBuffer(jsonData))
+	req, err := http.NewRequest(http.MethodPost, "https://localhost:3333/buy_candy", bytes.NewBuffer(jsonData))
 	if err != nil {
 		log.Fatalln("Error creating request: ", err)
 	}
