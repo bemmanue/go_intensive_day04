@@ -82,7 +82,7 @@ func handler(w http.ResponseWriter, r *http.Request) {
 func main() {
 	http.HandleFunc("/buy_candy", handler)
 
-	clientCA, err := ioutil.ReadFile("./client-cert/cert.pem")
+	clientCA, err := ioutil.ReadFile("../client-cert/cert.pem")
 	if err != nil {
 		log.Fatalf("reading cert failed : %v", err)
 	}
@@ -95,7 +95,7 @@ func main() {
 			ClientCAs:  clientCAPool,
 			ClientAuth: tls.RequireAndVerifyClientCert,
 			GetCertificate: func(info *tls.ClientHelloInfo) (*tls.Certificate, error) {
-				c, err := tls.LoadX509KeyPair("./server-cert/cert.pem", "./server-cert/key.pem")
+				c, err := tls.LoadX509KeyPair("../server-cert/cert.pem", "../server-cert/key.pem")
 				if err != nil {
 					log.Printf("Error loading key pair: %v\n", err)
 					return nil, err

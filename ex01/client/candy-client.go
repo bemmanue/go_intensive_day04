@@ -50,7 +50,7 @@ func main() {
 		log.Fatalln("Error encoding data: ", err)
 	}
 
-	rootCA, err := ioutil.ReadFile("./server-cert/cert.pem")
+	rootCA, err := ioutil.ReadFile("../server-cert/cert.pem")
 	if err != nil {
 		log.Fatalf("reading cert failed : %v", err)
 	}
@@ -64,7 +64,7 @@ func main() {
 			TLSClientConfig: &tls.Config{
 				RootCAs: rootCAPool,
 				GetClientCertificate: func(info *tls.CertificateRequestInfo) (*tls.Certificate, error) {
-					c, err := tls.LoadX509KeyPair("./client-cert/cert.pem", "./client-cert/key.pem")
+					c, err := tls.LoadX509KeyPair("../client-cert/cert.pem", "../client-cert/key.pem")
 					if err != nil {
 						log.Printf("Error loading key pair: %v\n", err)
 						return nil, err
