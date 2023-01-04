@@ -169,7 +169,7 @@ many. This data is being sent over to the server via HTTP and JSON and then:
 3) If the client provided a negative candyCount or wrong candyType (remember -
    all five candy types are encoded by two letters, so it's one of "CE", "AA",
    "NT", "DE" or "YR", all other cases are considered non-valid) then the
-   server should respond with 400 zand an error inside JSON describing what
+   server should respond with 400 and an error inside JSON describing what
    had gone wrong. You can actually do it in two different ways - it's
    either write the code manually with these checks or modify the Swagger
    spec above so it would cover these cases.
